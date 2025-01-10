@@ -7,7 +7,7 @@ Want to try our API out ? Let's start this journey together ! 💪
 
 ```bash
 # 1 - Clone the repository into your local environement
-git clone git@github.com:O-clock-Quinoa/seniorlove-back.git
+git clone git@github.com:SAMPAIOAlexandre/SeniorLoveBack.git
 cd seniorlove-back/
 code .
 ```
