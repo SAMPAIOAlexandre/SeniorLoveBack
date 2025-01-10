@@ -1,0 +1,30 @@
+{
+  "name": "senior-love-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "db:create": "psql -U seniorlove -d seniorlove -f data/create_tables.sql",
+    "db:populate": "psql -U seniorlove -d seniorlove -f data/seeding_tables.sql",
+    "db:reset": "npm run db:create && npm run db:populate"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.4.1",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1",
+    "sanitize-html": "^2.13.1",
+    "sequelize": "^6.37.5",
+    "zod": "^3.23.8"
+  }
+}

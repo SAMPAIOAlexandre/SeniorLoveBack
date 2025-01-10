@@ -1,0 +1,134 @@
+# # This file is a collection of requests that can be run using the REST Client extension in VSCode
+# # Mind that you need to have the extension installed in order to run these requests
+# # Think of uncommenting the request you want to run (one at a time)
+# # To run a request, click on the "Send Request" link that appears above the request
+
+# # ==== PROVIDING AUTHENTICATION TESTS ==== #
+
+# # # Register
+# POST http://localhost:3000/api/signup
+# Content-Type: application/json
+
+# {
+#     "gender": "M",
+#     "userName": "JohnDoe",
+#     "age": 60,
+#     "email": "john@doe.com",
+#     "password": "johndoe123"
+# }
+
+# # # Login
+# POST http://localhost:3000/api/login
+# Content-Type: application/json
+
+# {
+#     "email": "jean@doe.com",
+#     "password": "jeandoe123"
+# }
+
+# # ==== REQUIERING AUTHENTICATION TESTS ==== #
+
+# # # Get user profile with bearer token (copy the token from the login response)
+# GET http://localhost:3000/api/me
+# Authorization : Bearer paste_your_token_here
+
+# # ============================================================================ # #
+# # THIS PATCH TEST DOES NOT WORK IN REST CLIENT EXTENSION BUT WORKS IN POSTMAN ##
+# # Update user profile with bearer token (copy the token from the login response)
+# PATCH http://localhost:3000/api/me HTTP/1.1
+# Content-Type: application/json
+
+# Authorization : Bearer paste_your_token_here
+
+# {
+#     "hometown": "TestCity",
+#     "userName": "TestName",
+#     "bio": "Does this test work ?",
+#     "age": 30
+# }
+
+# # ============================================================================ # #
+
+# # Delete user profile with bearer token (copy the token from the login response)
+# DELETE http://localhost:3000/api/me
+# Authorization : Bearer paste_your_token_here
+
+# # # Add a tag to user profile with bearer token (copy the token from the login response)
+# POST http://localhost:3000/api/me/tags/3
+# Authorization : Bearer paste_your_token_here
+
+# # # Remove a tag from user profile with bearer token (copy the token from the login response)
+# DELETE http://localhost:3000/api/me/tags/3
+# Authorization : Bearer paste_your_token_here
+
+# # # Create an event with bearer token (copy the token from the login response)
+# POST http://localhost:3000/api/me/events
+# Content-Type: application/json
+# Authorization : Bearer paste_your_token_here
+
+# {
+#     "title": "Test Event",
+#     "description": "This is a test event",
+#     "date": "2021-12-31",
+#     "location": "TestCity",
+# }
+
+# # # Get all created events with bearer token (copy the token from the login response)
+# GET http://localhost:3000/api/me/events
+# Authorization : Bearer paste_your_token_here
+
+# # # Get one created event with bearer token (copy the token from the login response)
+# GET http://localhost:3000/api/me/events/7
+# Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTczMDcyMzE2NywiZXhwIjoxNzMwNzMzOTY3fQ.FuZ7jgU9iThoO0Sct46Z7yQddXiqEDoY-m9ZqXwFfus
+
+# # ============================================================================ # #
+# # THIS PATCH TEST DOES NOT WORK IN REST CLIENT EXTENSION BUT WORKS IN POSTMAN ##
+# # # # Update one created event with bearer token (copy the token from the login response)
+# PATCH http://localhost:3000/api/me/events/6
+
+# Content-Type: application/json
+
+# Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTczMDcxNjY5OCwiZXhwIjoxNzMwNzI3NDk4fQ.T1C12uQSiGBwF1qzLHRp0j3X9EeOUqdM8nW-TLkk2ZM
+
+# {
+#     "title": "Test Event Updated",
+#     "description": "This is a test event updated",
+#     "date": "2021-12-31",
+#     "location": "TestCity",
+# }
+# # ============================================================================ # #
+
+# # # Delete one created event with bearer token (copy the token from the login response)
+# DELETE http://localhost:3000/api/me/events/6
+# Authorization : Bearer paste_your_token_here
+
+# # # Add a tag to one created event with bearer token (copy the token from the login response)
+# POST http://localhost:3000/api/me/events/7/tags/6
+# Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTczMDcyMzE2NywiZXhwIjoxNzMwNzMzOTY3fQ.FuZ7jgU9iThoO0Sct46Z7yQddXiqEDoY-m9ZqXwFfus
+
+# # # Remove a tag from one created event with bearer token (copy the token from the login response)
+# DELETE http://localhost:3000/api/me/events/7/tags/4
+# Authorization : Bearer paste_your_token_here
+
+# # ==== COMMON TESTS ==== #
+
+# # Get all users
+# GET http://localhost:3000/api/users
+
+# # Get one user (here we are getting the user with id 1)
+# GET http://localhost:3000/api/users/1
+
+# # Get all events
+# GET http://localhost:3000/api/events
+
+# # Get one event (here we are getting the event with id 1)
+# GET http://localhost:3000/api/events/1
+
+# # Get all testimonies
+# GET http://localhost:3000/api/testimonies
+
+# # Get all sentences
+# GET http://localhost:3000/api/sentences
+
+# # # Get one sentence
+# GET http://localhost:3000/api/sentences/4

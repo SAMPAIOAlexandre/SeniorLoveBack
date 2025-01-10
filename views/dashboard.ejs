@@ -1,0 +1,41 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<div class="section">
+  <h1 class="title is-1 has-text-centered">Senior Love Administration Dashboard</h1>
+  <div class="container">
+    <p class="subtitle is-4 has-text-centered">Welcome aboard, Captain <span class="has-text-weight-bold"><%= admin.userName %></span> ❤️</p>
+
+    <div class="container">
+      <h3 class="title is-3 has-text-centered">What do we do ?</h3>
+      <div class="columns is-multiline is-centered">
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content has-text-centered">
+              <p class="title is-4">Edit Users</p>
+              <a href="/admin/users" class="button is-link is-fullwidth">Access Users List</a>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="card">
+            <div class="card-content has-text-centered">
+              <p class="title is-4">Edit Events</p>
+              <a href="/admin/events" class="button is-link is-fullwidth">Access Events List</a>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="card has-background-danger-dark">
+            <div class="card-content has-text-centered">
+              <p class="title is-4 has-text-white">Edit Admins</p>
+              <a href="/admin/admins" class="button is-danger is-fullwidth">Access Admins List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

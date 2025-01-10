@@ -1,0 +1,56 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<h2 class="title is-2 has-text-centered">This is the admins edit page</h2>
+
+<div class="container">
+  <table class="table is-striped is-fullwidth" id="adminsTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% admins.forEach(admin => { %>
+        <tr>
+          <td class="has-text-weight-bold"><%= admin.userName %></td>
+          <td><%= admin.email %></td>
+          <td>
+            <button onclick="deleteAdmin('<%= admin.id %>')" class="button is-danger is-small">DELETE</button>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container mt-4">
+  <h2 class="title is-2 has-text-centered">Create a new admin</h2>
+  <form action="/admin/signup" method="POST">
+    <div class="field">
+      <label class="label">Username</label>
+      <div class="control">
+        <input class="input" type="text" name="userName" placeholder="Username">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <input class="input" type="email" name="email" placeholder="Email">
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" type="password" name="password" placeholder="Password">
+      </div>
+    </div>
+    <button type="submit" class="button is-primary">Create Admin</button>
+  </form>
+</div>
+
+
+<%- include('./partials/footer') %>

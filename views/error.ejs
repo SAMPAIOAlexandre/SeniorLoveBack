@@ -1,0 +1,17 @@
+<%- include('./partials/header') %>
+
+<section class="hero is-fullheight body-401 is-flex-direction-column">
+  <div class="hero-body">
+    <div class="container cardIsWhite has-text-centered p-5">
+      <% if (error) { %>
+        <div class="container has-text-centered p-5">
+          <h1 class="subtitle is-1 bold"><%= error %></h1>
+        </div>
+        <% } %>
+      <p class="subtitle is-4">Please connect or contact an administrator.</p>
+      <a href="/" class="button is-primary">To connect</a>
+    </div>
+  </div>
+</section>
+
+<%- include('./partials/footer') %>

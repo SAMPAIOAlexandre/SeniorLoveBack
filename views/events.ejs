@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<h2 class="title is-2 has-text-centered">This is the events edit page</h2>
+
+<div class="container">
+  <div class="field">
+    <div class="control">
+      <input class="input" type="text" placeholder="Search events" id="searchInput" onkeyup="filterEvents()">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table is-striped is-fullwidth" id="eventsTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Owner</th>
+        <th>Picture</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% events.forEach(event => { %>
+        <tr>
+          <td class="has-text-weight-bold"><%= event.title %></td>
+          <td><%= event.creator.userName %></td>
+          <td><img src="<%= event.picture %>" alt="event picture" style="width: 80px; height: 50px;"></td>
+          <td><%= event.date %></td>
+          <td class="has-text-weight-bold"><%= event.location %></td>
+          <td><%= event.description %></td>
+          <td>
+            <button onclick="deleteEvent('<%= event.id %>')" class="button is-danger is-small">DELETE</button>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('./partials/footer') %>

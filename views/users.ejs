@@ -1,0 +1,45 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+
+<h2 class="title is-2 has-text-centered">This is the users edit page</h2>
+
+<div class="container">
+  <div class="field">
+    <div class="control">
+      <input class="input" type="text" placeholder="Search users" id="searchInput" onkeyup="filterUsers()">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table is-striped is-fullwidth" id="usersTable">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Picture</th>
+        <th>Age</th>
+        <th>Sexe</th>
+        <th>Role</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td class="has-text-weight-bold"><%= user.userName %></td>
+          <td><img src="<%= user.picture %>" alt="user picture" style="width: 50px; height: 50px;"></td>
+          <td><%= user.age %> ans</td>
+          <td class="has-text-weight-bold"><%= user.gender %></td>
+          <td><%= user.role %></td>
+          <td><%= user.email %></td>
+          <td>
+            <button onclick="deleteUser('<%= user.id %>')" class="button is-danger is-small">DELETE</button>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('./partials/footer') %>
